@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/App.css */
+html, body {
+  background-color: #000000; /* Sets the background color to black */
+  color: #fff; /* Sets the text color to white for better contrast */
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+nav a.active {
+  background-color: purple;
+  color: white;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
