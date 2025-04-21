@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import ProjectImage1 from '../assets/1.gif';
 import ProjectImage2 from '../assets/coldstore.gif';
 import ProjectImage3 from '../assets/newprojectt.gif';
-import ColdStorageVideo from '../assets/cold.mp4'; // Local video file
+import ProjectImage4 from '../assets/4.gif'; // New burger project image
+import ColdStorageVideo from '../assets/colder.mp4';
 
 const Modal = ({ onClose }) => {
   return (
@@ -109,7 +110,7 @@ const Projects = () => {
             <div className="w-full h-32 mb-4 overflow-hidden flex justify-center items-center">
               <img
                 src={ProjectImage2}
-                alt="Project 2"
+                alt="Cold Storage Dashboard"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
@@ -133,7 +134,7 @@ const Projects = () => {
             <div className="w-full h-32 mb-4 overflow-hidden flex justify-center items-center">
               <img
                 src={ProjectImage3}
-                alt="Project 3"
+                alt="Ashy Bakes"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
@@ -145,6 +146,32 @@ const Projects = () => {
               </p>
               <a
                 href="https://bakery-site-phi.vercel.app/"
+                className="text-purple-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Link &gt;&gt;
+              </a>
+            </div>
+          </div>
+
+          {/* Project 4 - Wham Bam Burgers */}
+          <div className="bg-purple-960 p-4 rounded-2xl border border-purple-900 w-full max-w-md hover:bg-purple-800 hover:scale-105 transition-all duration-300">
+            <div className="w-full h-32 mb-4 overflow-hidden flex justify-center items-center">
+              <img
+                src={ProjectImage4}
+                alt="Wham Bam Burgers"
+                className="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            <div className="text-center">
+              <h2 className="text-xl font-semibold mb-2">Wham Bam Burgers</h2>
+              <p className="text-purple-500 text-sm mb-2">React.js</p>
+              <p className="text-gray-300 text-sm mb-4">
+                A fast food ordering website with full admin control. Admins can add items to the menu, manage orders, and update order statuses in real-time.
+              </p>
+              <a
+                href="https://wham-bam-burgers.vercel.app/"
                 className="text-purple-500 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
