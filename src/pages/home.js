@@ -81,7 +81,7 @@ const Homepage = () => {
             >
               <Typewriter
                 options={{
-                  strings: ['Full Stack Developer', 'Web Developer'],
+                  strings: ['Frontend Developer', 'Web Developer'],
                   autoStart: true,
                   loop: true,
                   delay: 75,
@@ -155,7 +155,7 @@ const Homepage = () => {
       <section id="contact" className="bg-purple-950 text-white py-0 md:py-0">
         <ContactMe />
         <div className="text-center mt-1">
-          <p className="text-base md:text-lg">&copy; 2024 Ayesha Iqbal. All rights reserved.</p>
+          <p className="text-base md:text-lg">&copy; 2025 Ayesha Iqbal. All rights reserved.</p>
         </div>
       </section>
     </div>

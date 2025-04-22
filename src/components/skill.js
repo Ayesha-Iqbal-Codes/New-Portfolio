@@ -9,7 +9,7 @@ const skillsData = [
       <div className="bg-gray-200 p-1 rounded-full">
         <SiNextdotjs className="text-4xl text-black" />
       </div>
-    ), percentage: 80 },
+    ), percentage: 70 },
   { name: 'Python', icon: <FaPython className="text-4xl text-yellow-500" />, percentage: 85 },
   { name: 'Backend (Node.js + Express)', icon: <FaNodeJs className="text-4xl text-green-600" />, percentage: 80 },
 ];

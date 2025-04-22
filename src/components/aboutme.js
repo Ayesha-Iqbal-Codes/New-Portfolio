@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import profilePic from '../assets/Image.jpg'; // Ensure this path is correct for your profile picture
-import { FaInstagram, FaGithub } from 'react-icons/fa'; // Import social icons
+import { FaGithub } from 'react-icons/fa'; // Import GitHub icon
 import { MdArrowDownward } from 'react-icons/md'; // Import down arrow icon
 
 const About = () => {
@@ -51,7 +51,7 @@ const About = () => {
         {/* About Me Description */}
         <div className="w-full md:w-2/3 lg:w-3/4 flex flex-col">
           <p className={`text-lg md:text-2xl text-gray-100 leading-relaxed mb-6 px-6 md:px-12 text-justify ${isVisible ? 'animate-fadeIn' : ''}`}>
-            I am a skilled web developer with hands-on experience in full-stack development using the MERN stack (MongoDB, Express.js, React, Node.js) and Next.js. I excel in both front-end and back-end development, creating modern, responsive designs and building scalable web applications. I'm always eager to embrace new technologies and tackle challenging projects that require a blend of technical skill and creativity.
+          I'm a web developer with a passion for building responsive, user-friendly websites and applications. I’m always excited to learn new technologies and improve my skills. My focus is on creating functional, and accessible designs that prioritize user experience. Whether it's front-end or back-end development, I enjoy the challenge of turning ideas into reality with clean, efficient code. I’m always exploring new tools and techniques to stay ahead in the fast-evolving world of web development and deliver high-quality solutions.
           </p>
 
           {/* Buttons & Social Links Section (Improved Layout) */}
@@ -68,9 +68,6 @@ const About = () => {
 
             {/* Social Links */}
             <div className="flex space-x-6">
-              <a href="https://www.instagram.com/ash_ayeshaa" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300 ease-in-out">
-                <FaInstagram size={32} />
-              </a>
               <a href="https://github.com/Ayesha-Iqbal-Codes" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300 ease-in-out">
                 <FaGithub size={32} />
               </a>
