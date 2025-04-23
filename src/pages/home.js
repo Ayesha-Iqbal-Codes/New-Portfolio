@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion'; 
 import AboutMe from '../components/aboutme';
 import ContactMe from '../components/contact';
 import TechStack from '../components/techstack';
@@ -11,7 +11,7 @@ import Navbar from '../components/navbar';
 import '../App.css';
 import { FaArrowRight } from 'react-icons/fa';
 import Typewriter from 'typewriter-effect';
-import { Link as ScrollLink } from 'react-scroll'; // Import ScrollLink
+import { Link as ScrollLink } from 'react-scroll'; 
 
 const Homepage = () => {
   const [activeLink, setActiveLink] = useState('home');
@@ -35,7 +35,7 @@ const Homepage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set the initial active link
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -43,21 +43,21 @@ const Homepage = () => {
     <div className="font-serif">
       <Navbar activeLink={activeLink} />
 
-      {/* Home Section */}
+    
       <section id="home" className="min-h-screen bg-black text-white flex items-center justify-center py-6 px-6">
         <div className="max-w-4xl w-full mt-[-2%]">
           <motion.div
             className="flex flex-col items-center md:items-start"
-            initial={{ opacity: 0, y: 50 }} // Initial state for animations
-            animate={{ opacity: 1, y: 0 }}  // Final state of the animation
-            transition={{ duration: 1, ease: 'easeOut' }} // Duration of the animation
+            initial={{ opacity: 0, y: 50 }} 
+            animate={{ opacity: 1, y: 0 }}  
+            transition={{ duration: 1, ease: 'easeOut' }} 
           >
             <motion.p
               className="text-3xl md:text-4xl font-light text-purple-600 mb-4 md:mb-6 text-left md:ml-[-1rem] lg:ml-[-2rem]"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, delay: 0.1 }}
-              whileHover={{ scale: 1.1, color: '#d6bcfa' }} // Light purple on hover
+              whileHover={{ scale: 1.1, color: '#d6bcfa' }} 
             >
               Hey there, it's
             </motion.p>
@@ -67,7 +67,7 @@ const Homepage = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.4, delay: 0.2 }}
-              whileHover={{ scale: 1.05, color: '#d6bcfa' }} // Light purple on hover
+              whileHover={{ scale: 1.05, color: '#d6bcfa' }} 
             >
               Ayesha Iqbal
             </motion.h1>
@@ -77,7 +77,7 @@ const Homepage = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.6, delay: 0.3 }}
-              whileHover={{ scale: 1.05, color: '#d6bcfa' }} // Light purple on hover
+              whileHover={{ scale: 1.05, color: '#d6bcfa' }} 
             >
               <Typewriter
                 options={{
@@ -95,7 +95,7 @@ const Homepage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.8, delay: 0.4 }}
-              whileHover={{ scale: 1.05, color: '#d6bcfa' }} // Light purple on hover
+              whileHover={{ scale: 1.05, color: '#d6bcfa' }} 
             >
               Passionate about transforming ideas into engaging web experiences.
             </motion.p>
@@ -106,12 +106,12 @@ const Homepage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.5 }}
-            whileHover={{ scale: 1.05 }} // Hover effect for the button
+            whileHover={{ scale: 1.05 }} 
           >
             <ScrollLink
-              to="projects" // Link to the "projects" section
-              smooth={true} // Enable smooth scrolling
-              duration={500} // Set the scroll duration in milliseconds
+              to="projects" 
+              smooth={true} 
+              duration={500} 
               className="bg-purple-800 text-white py-3 px-8 text-lg font-bold rounded-full flex items-center transition-transform hover:scale-110 hover:bg-white hover:text-purple-800 cursor-pointer"
             >
               <span className="mr-2">See My Projects</span>
@@ -121,37 +121,37 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* About Section */}
+     
       <section id="about" className="py-6 md:py-8">
         <AboutMe />
       </section>
 
-      {/* Tech Stack Section */}
+      
       <section id="tech-stack" className="py-6 md:py-8">
         <TechStack />
       </section>
 
-      {/* Projects Section */}
+      
       <section id="projects" className="py-6 md:py-8">
         <Projects />
       </section>
 
-      {/* Skills Section */}
+      
       <section id="skills" className="py-6 md:py-8">
         <SkillsPercentage />
       </section>
 
-      {/* Work Experience Section */}
+      
       <section id="work-experience" className="py-6 md:py-8">
         <WorkExperience />
       </section>
 
-      {/* Education Section */}
+      
       <section id="education" className="py-6 md:py-4">
         <Education />
       </section>
 
-      {/* Contact Section */}
+     
       <section id="contact" className="bg-purple-950 text-white py-0 md:py-0">
         <ContactMe />
         <div className="text-center mt-1">
