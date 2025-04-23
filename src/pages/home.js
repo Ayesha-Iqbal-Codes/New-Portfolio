@@ -81,7 +81,7 @@ const Homepage = () => {
             >
               <Typewriter
                 options={{
-                  strings: ['Frontend Developer', 'Web Developer'],
+                  strings: ['Full Stack Developer', 'Web Developer'],
                   autoStart: true,
                   loop: true,
                   delay: 75,
