@@ -39,7 +39,7 @@ const Education = () => {
             <img src={CitySchoolLogo} alt="The City School" className="w-full h-full rounded-lg" />
           </div>
           <div className="text-center md:text-left flex-1">
-            <h2 className="text-xl md:text-2xl font-semibold">O-Levels, The City School, Islamabad</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">O-Levels in Science, The City School, Islamabad</h2>
             <p className="text-lg text-gray-400">2018</p>
           </div>
         </div>

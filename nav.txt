@@ -1,0 +1,181 @@
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaChartLine, FaBriefcase, FaSchool, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
+
+const iconMap = {
+  home: <FaHome className="text-xl" />,
+  about: <FaUser className="text-xl" />,
+  'tech-stack': <FaCode className="text-xl" />,
+  projects: <FaProjectDiagram className="text-xl" />,
+  skills: <FaChartLine className="text-xl" />,
+  'work-experience': <FaBriefcase className="text-xl" />,
+  education: <FaSchool className="text-xl" />,
+  contact: <FaEnvelope className="text-xl" />
+};
+
+const sectionNames = {
+  home: 'Home',
+  about: 'About',
+  'tech-stack': 'Tech',
+  projects: 'Projects',
+  skills: 'Skills',
+  'work-experience': 'Work',
+  education: 'Edu',
+  contact: 'Contact'
+};
+
+const Navbar = () => {
+  const [activeLink, setActiveLink] = useState('home');
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = Object.keys(iconMap);
+      let activeSection = 'home';
+
+      const scrollPosition = window.scrollY;
+      const scrollBottomPosition = scrollPosition + window.innerHeight;
+      const documentHeight = document.body.offsetHeight;
+
+      if (scrollPosition === 0) {
+        activeSection = 'home';
+      } else {
+        sections.forEach((section) => {
+          const element = document.getElementById(section);
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
+
+            if (scrollBottomPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              activeSection = section;
+            }
+          }
+        });
+
+        if (scrollBottomPosition >= documentHeight) {
+          activeSection = 'contact';
+        }
+      }
+
+      setActiveLink(activeSection);
+    };
+
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleScroll();
+    handleResize();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleClick = (section) => {
+    setActiveLink(section);
+    if (isMobileView) {
+      setIsMobileOpen(false);
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileOpen(!isMobileOpen);
+  };
+
+  // Desktop Navbar
+  const DesktopNav = () => (
+    <nav className="bg-black bg-opacity-90 w-14 h-auto p-3 fixed top-1/2 right-0 transform -translate-y-1/2 rounded-tl-xl rounded-bl-xl shadow-2xl flex flex-col items-center z-50 backdrop-blur-sm">
+      <ul className="flex flex-col space-y-4 items-center">
+        {Object.keys(iconMap).map((section) => (
+          <li
+            key={section}
+            className="relative text-center group"
+            onMouseEnter={() => setHoveredLink(section)}
+            onMouseLeave={() => setHoveredLink(null)}
+          >
+            <a
+              href={`#${section}`}
+              className={classNames(
+                'text-white hover:text-purple-300 p-2 rounded-full flex items-center justify-center transition-all duration-300',
+                {
+                  'bg-purple-600 shadow-[0_0_10px_3px_rgba(147,51,234,0.6)]': activeLink === section,
+                  'scale-110 bg-purple-900 bg-opacity-50': hoveredLink === section,
+                }
+              )}
+              style={{ width: '2.5rem', height: '2.5rem' }}
+              onClick={() => handleClick(section)}
+            >
+              {iconMap[section]}
+            </a>
+
+            {hoveredLink === section && (
+              <span
+                className="absolute top-1/2 right-full transform -translate-y-1/2 mr-3 text-sm font-medium bg-purple-900 text-white py-1 px-3 rounded-lg whitespace-nowrap transition-all duration-200 shadow-[0_0_10px_rgba(128,0,255,0.5)]"
+              >
+                {sectionNames[section]}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+
+  // Mobile Navbar
+  const MobileNav = () => (
+    <>
+      <button
+        onClick={toggleMobileMenu}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${isMobileOpen ? 
+          'bg-purple-700 rotate-90' : 
+          'bg-purple-600 hover:bg-purple-700 animate-pulse'}`}
+      >
+        {isMobileOpen ? (
+          <FaTimes className="text-white text-xl" />
+        ) : (
+          <FaBars className="text-white text-xl" />
+        )}
+      </button>
+
+      {isMobileOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-40 backdrop-blur-sm" onClick={toggleMobileMenu}>
+          <nav 
+            className="absolute bottom-20 right-6 bg-gradient-to-b from-purple-900 to-purple-800 bg-opacity-90 rounded-xl p-4 shadow-2xl z-50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ul className="grid grid-cols-3 gap-3">
+              {Object.keys(iconMap).map((section) => (
+                <li key={section} className="text-center">
+                  <a
+                    href={`#${section}`}
+                    className={classNames(
+                      'flex flex-col items-center justify-center p-3 rounded-lg transition-all duration-300',
+                      {
+                        'bg-purple-600 text-white shadow-[0_0_10px_3px_rgba(147,51,234,0.6)]': activeLink === section,
+                        'bg-purple-800 text-purple-200 hover:bg-purple-700': activeLink !== section,
+                      }
+                    )}
+                    onClick={() => handleClick(section)}
+                  >
+                    <span className="text-xl mb-1">{iconMap[section]}</span>
+                    <span className="text-xs font-medium">{sectionNames[section]}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      )}
+    </>
+  );
+
+  return isMobileView ? <MobileNav /> : <DesktopNav />;
+};
+
+export default Navbar;

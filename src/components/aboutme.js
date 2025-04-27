@@ -12,7 +12,7 @@ const About = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing after the animation triggers
+          observer.disconnect(); 
         }
       });
     });
